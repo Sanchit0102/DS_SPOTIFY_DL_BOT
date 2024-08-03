@@ -18,6 +18,7 @@ mutagen
 pymongo
 bs4
 motor
+metadata
 Shazamio
 youtube_search
 youtube-search-python
