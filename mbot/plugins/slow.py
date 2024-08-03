@@ -19,7 +19,7 @@ from mbot import LOG_GROUP, OWNER_ID, SUDO_USERS, Mbot, AUTH_CHATS, BUG, F_SUB
 from os import execvp, sys, execl, environ, mkdir
 from apscheduler.schedulers.background import BackgroundScheduler
 import shutil
-from fsub import Fsub
+# from fsub import Fsub
 from spotipy.oauth2 import SpotifyClientCredentials
 # from tg import get_readable_file_size, get_readable_time
 
@@ -74,11 +74,11 @@ async def _(c, m):
         user_id = 5268375124
     if not m.text:
         return
-    try:
-        if F_SUB:
-            await Fsub(message, Mbot, user_id)
-    except (StopPropagation, ChatWriteForbidden):
-        raise StopPropagation
+    # try:
+        # if F_SUB:
+            # await Fsub(message, Mbot, user_id)
+    # except (StopPropagation, ChatWriteForbidden):
+        # raise StopPropagation
     if message.text.startswith('/'):
         return
     elif message.text.startswith('https:'):
