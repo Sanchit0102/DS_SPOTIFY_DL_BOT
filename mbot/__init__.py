@@ -21,9 +21,15 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 """
 
-from pyrogram import Client
+from pyrogram import Client,
 from os import environ,sys,mkdir,path
 import logging
+import requests
+from flask import Flask
+from threading import Thread
+import pytz
+import time
+from apscheduler.schedulers.background import BackgroundScheduler
 from sys import executable
 #from Python_ARQ import ARQ
 from aiohttp import ClientSession
@@ -100,10 +106,42 @@ class Mbot(Client):
         BOT_INFO = await self.get_me()
         if not path.exists('/tmp/thumbnails/'):
             mkdir('/tmp/thumbnails/')
-        for chat in AUTH_CHATS:
-            await self.send_photo(chat,"https://telegra.ph/file/97bc8a091ac1b119b72e4.jpg","**Spotify Downloa Started**")
+        # for chat in AUTH_CHATS:
+            # await self.send_photo(chat,"https://telegra.ph/file/97bc8a091ac1b119b72e4.jpg","**Spotify Downloa Started**")
         LOGGER.info(f"Bot Started As {BOT_INFO.username}\n")
     
     async def stop(self,*args):
         await super().stop()
         LOGGER.info("Bot Stopped, Bye.")
+
+# ================================================================ #
+
+RENDER_EXTERNAL_URL = environ.get("RENDER_EXTERNAL_URL", "http://localhost:5000")
+
+def ping_self():
+    url = f"{RENDER_EXTERNAL_URL}/alive"
+    try:
+        response = requests.get(url)
+        if response.status_code == 200:
+            logging.info("Ping successful!")
+        else:
+            logging.error(f"Ping failed with status code {response.status_code}")
+    except Exception as e:
+        logging.error(f"Ping failed with exception: {e}")
+
+def start_scheduler():
+    scheduler = BackgroundScheduler(timezone=pytz.utc)
+    scheduler.add_job(ping_self, 'interval', minutes=3)
+    scheduler.start()
+
+app = Flask(__name__)
+
+@app.route('/alive')
+def alive():
+    return "I am alive!"
+
+def run_flask():
+    app.run(host='0.0.0.0', port=10000)
+
+Thread(target=run_flask).start()
+start_scheduler()
