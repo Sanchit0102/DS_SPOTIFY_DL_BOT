@@ -54,12 +54,12 @@ async def link_handler(Mbot, message):
                       return await message.reply("oops something went wrong")
                try:
                    if ddinsta:
-                      dump_file=await message.reply_video(content_value,caption="Thank you for using our Bot!")
+                      dump_file=await message.reply_video(content_value,caption="<b>Thank You For Using - @Public_Media_Downloader_Bot</b>")
                    else:
-                       dump_file=await message.reply_video(content_value, caption="Thank you for using our Bot!")
+                       dump_file=await message.reply_video(content_value, caption="<b>Thank You For Using - @Public_Media_Downloader_Bot</b>")
                except:
                    downfile=wget.download(content_value)
-                   dump_file=await message.reply_video(downfile,caption="Thank you for using our Bot!") 
+                   dump_file=await message.reply_video(downfile,caption="<b>Thank You For Using - @Public_Media_Downloader_Bot</b>") 
             elif "/p/" in url:
                   meta_tag = requests.post("https://saveig.app/api/ajaxSearch", data={"q": link, "t": "media", "lang": "en"}, headers=headers)
                   if meta_tag.ok:
