@@ -21,7 +21,7 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 """
 
-from pyrogram import Client,
+from pyrogram import Client
 from os import environ,sys,mkdir,path
 import logging
 import requests
