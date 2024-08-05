@@ -5,8 +5,8 @@ RUN apt-get update \
     && rm -rf /var/lib/apt/lists/*
 RUN pip3 install --upgrade pip
 
-WORKDIR /music
-RUN chmod 777 /music
+WORKDIR /Spotify-Downloader
+RUN chmod 777 /Spotify-Downloader
 RUN apt update && apt upgrade -y && apt install gcc ffmpeg python3 python3-pip -y
 COPY requirements.txt .
 RUN pip3 install -r requirements.txt
