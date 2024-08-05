@@ -54,12 +54,13 @@ async def song(_, message):
               await message.reply_text(f"Failed to send song retry after sometime 😥 reason: {e} ")
               return await k.delete()
           query = message.text.split(None, 1)[1]
-          await k.edit("downloading")
+          # await k.edit("downloading Song, Just Wait a Second...!")
           print('downloading')
           await message.reply_chat_action(enums.ChatAction.RECORD_AUDIO)
+          await k.edit("downloading Song, Just Wait a Second...!")
           path = await download_songs(query,randomdir)
           await message.reply_chat_action(enums.ChatAction.UPLOAD_AUDIO)
-          await k.edit('uploading')
+          await k.edit('Uploading The Song...')
           await message.reply_audio(path)
       
       except IndexError:
