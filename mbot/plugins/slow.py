@@ -15,7 +15,7 @@ from pyrogram.types import CallbackQuery, Message
 # from database.users_chats_db import db as dib
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
 from pyrogram.raw.functions import Ping
-from mbot import LOG_GROUP, OWNER_ID, SUDO_USERS, Mbot, AUTH_CHATS, BUG, F_SUB
+from mbot import LOG_GROUP, OWNER_ID, SUDO_USERS, Mbot, AUTH_CHATS, BUG, F_SUB, F_SUB_CHANNEL_ID 
 from os import execvp, sys, execl, environ, mkdir
 from apscheduler.schedulers.background import BackgroundScheduler
 import shutil
@@ -71,7 +71,7 @@ async def _(c, m):
     try:
         user_id = message.from_user.id
     except:
-        user_id = 5268375124
+        user_id = 6302879150
     if not m.text:
         return
     try:
@@ -218,9 +218,9 @@ async def search(Mbot: Mbot, query: CallbackQuery):
         except:
             pass
         try:
-            await query.message.reply_text(f"Done✅",   
-         reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton(text="Feedback", callback_data="feed")]]))
-            await query.message.reply_text(f"Check out @spotify_downloa_bot(music)  @spotifynewss(News)")
+            await query.message.reply_text(f"Done✅")
+         # reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton(text="Feedback", callback_data="feed")]]))
+            # await query.message.reply_text(f"Check out @spotify_downloa_bot(music)  @spotifynewss(News)")
         except:
             pass     
 
@@ -232,23 +232,23 @@ async def refresh(Mbot, query):
           except Exception:
              return 
           try:
-              get_member = await Mbot.get_chat_member(chat_id=-1001797516752,user_id=user_id)
+              get_member = await Mbot.get_chat_member(chat_id=F_SUB_CHANNEL_ID,user_id=user_id)
           except UserNotParticipant:
               try:
-                  await query.answer("Please Join The Channel",show_alert=True)
+                  await query.answer("<b>i like Your Smartness!, But Dont Be Oversmart\n\nPlease Join The Channel to continue</b>",show_alert=True)
               except QueryIdInvalid:
                   await query.message.reply("Please Join The Channel :)")
               await query.message.stop_propagation()
           except PeerIdInvalid:
               try:
                   await Mbot.send_chat_action(chat_id=user_id,action=enums.ChatAction.TYPING)
-                  get_member = await Mbot.get_chat_member(chat_id=-1001797516752,user_id=user_id)
+                  get_member = await Mbot.get_chat_member(chat_id=F_SUB_CHANNEL_ID,user_id=user_id)
               except PeerIdInvalid:
                   pass
               except UserIsBlocked:
                   pass
               except UserNotParticipant:
-                  await query.answer("Please Join The Channel",show_alert=True)
+                  await query.answer("<b>i like Your Smartness!, But Dont Be Oversmart\n\nPlease Join The Channel to continue</b>",show_alert=True)
                   await query.message.stop_propagation()
           await query.message.delete()
           try:
