@@ -255,7 +255,7 @@ async def refresh(Mbot, query):
               await query.answer("Congratulations You Are  Unlocked 🤝 ",show_alert=True)
           except:
                pass
-          await query.message.reply("Congratulations You Had Unlocked Go Ahead 🤝 Keep The Bond With Us❣️")
+          await query.message.reply("<b>Congratulations You Had Unlocked Go Ahead! \n\nKeep The Bond With Us❣️</b>")
       except (StopPropagation,AttributeError):
           pass
       except Exception as e:
