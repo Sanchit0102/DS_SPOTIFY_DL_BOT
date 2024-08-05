@@ -235,7 +235,7 @@ async def refresh(Mbot, query):
               get_member = await Mbot.get_chat_member(chat_id=F_SUB_CHANNEL_ID,user_id=user_id)
           except UserNotParticipant:
               try:
-                  await query.answer("<b>i like Your Smartness!, But Dont Be Oversmart\n\nPlease Join The Channel to continue</b>",show_alert=True)
+                  await query.answer("i like Your Smartness!, But Dont Be Oversmart\n\nPlease Join The Channel to continuel",show_alert=True)
               except QueryIdInvalid:
                   await query.message.reply("Please Join The Channel :)")
               await query.message.stop_propagation()
@@ -248,7 +248,7 @@ async def refresh(Mbot, query):
               except UserIsBlocked:
                   pass
               except UserNotParticipant:
-                  await query.answer("<b>i like Your Smartness!, But Dont Be Oversmart\n\nPlease Join The Channel to continue</b>",show_alert=True)
+                  await query.answer("i like Your Smartness!, But Dont Be Oversmart\n\nPlease Join The Channel to continue",show_alert=True)
                   await query.message.stop_propagation()
           await query.message.delete()
           try:
