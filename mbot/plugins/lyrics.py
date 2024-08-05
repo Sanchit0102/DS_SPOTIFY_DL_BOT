@@ -24,7 +24,7 @@ async def sng(bot, message):
           except Exception as e:                            
              await message.reply_text(f"lyrics does not found for `{song}` ", quote = True, reply_markup = InlineKeyboardMarkup([[InlineKeyboardButton("ᴜᴘᴅᴀᴛᴇs", url = f"https://t.me/Silent_Bots")]]))
           finally:
-            await message.reply("Thank You For Connecting Us!")
+            await message.reply("<b>Thank You For Using - @Public_Media_Downloader_Bot</b>")
 
 
 
