@@ -19,7 +19,7 @@ from mbot import LOG_GROUP, OWNER_ID, SUDO_USERS, Mbot, AUTH_CHATS, BUG, F_SUB, 
 from os import execvp, sys, execl, environ, mkdir
 from apscheduler.schedulers.background import BackgroundScheduler
 import shutil
-from fsub import Fsub
+from fsub import Fsub, paste
 from spotipy.oauth2 import SpotifyClientCredentials
 # from tg import get_readable_file_size, get_readable_time
 
