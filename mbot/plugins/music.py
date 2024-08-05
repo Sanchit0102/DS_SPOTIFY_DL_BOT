@@ -70,7 +70,7 @@ async def song(_, message):
       finally:
           try:
               shutil.rmtree(randomdir)
-              await message.reply_text(f"THANK YOU FOR CONNECTING US!")
+              await message.reply_text(f"<b>Thank You For Using - @Public_Media_Downloader_Bot</b>")
               return await k.delete() 
           except:
               pass
