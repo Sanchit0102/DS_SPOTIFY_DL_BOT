@@ -186,7 +186,7 @@ async def _(Mbot,message):
         await m.delete()
         if os.path.exists(randomdir):
            rmtree(randomdir)
-        await message.reply("Please Support Us By /donate To Maintain This Project")
+        await message.reply("<b>Thank You For Using - @Public_Media_Downloader_Bot</b>")
     except Exception as e:
         print(e)
         if LOG_GROUP:
