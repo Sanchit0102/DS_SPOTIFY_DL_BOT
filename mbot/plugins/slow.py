@@ -71,7 +71,7 @@ async def _(c, m):
     try:
         user_id = message.from_user.id
     except:
-        user_id = 6302879150
+        user_id = 7346576856
     if not m.text:
         return
     try:
