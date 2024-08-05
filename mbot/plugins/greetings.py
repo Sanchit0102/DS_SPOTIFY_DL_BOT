@@ -46,7 +46,7 @@ async def start(client,message):
     if message.chat.type != "private" and message.chat.id not in AUTH_CHATS and message.from_user.id not in SUDO_USERS:
         return await message.reply_text("This Bot Will Not Work In Groups Unless It's Authorized.",
                     reply_markup=InlineKeyboardMarkup(reply_markup))
-    return await message.reply_text(f"Hello {message.from_user.first_name}, I'm a Simple Music Downloader Bot.",
+    return await message.reply_text(f"<b>Hᴇʟʟᴏ {message.from_user.first_name}, Jᴀɪ Sʜʀᴇᴇ Rᴀᴍ...🙏🏻\n\nɪ ᴀᴍ ᴛʜᴇ ᴍᴏꜱᴛ ᴘᴏᴡᴇʀꜰᴜʟ Mᴇᴅɪᴀ Dᴏᴡɴʟᴏᴀᴅᴇʀ ʙᴏᴛ ᴡɪᴛʜ Aᴅᴠᴀɴᴄᴇ ꜰᴇᴀᴛᴜʀᴇꜱ !\nI Cᴀɴ Dᴏᴡɴʟᴏᴀᴅ Vɪᴅᴇᴏꜱ Fʀᴏᴍ Iɴꜱᴛᴀɢʀᴀᴍ, Fᴀᴄᴇʙᴏᴏᴋ & Tᴡɪᴛᴛᴇʀ Aɴᴅ Dᴏᴡɴʟᴏᴀᴅ Mᴜꜱɪᴄ Fʀᴏᴍ Sᴘᴏᴛɪғʏ, Yᴏᴜᴛᴜʙᴇ, Dᴇᴇᴢᴇʀ, Sᴏᴜɴᴅᴄʟᴏᴜᴅ, Eᴛᴄ 🔥\n\n<blockquote>Uꜱᴇ /song Cᴏᴍᴍᴀɴᴅ Tᴏ Dᴏᴡɴʟᴏᴀᴅ Aɴʏ Sᴏɴɢ Wɪᴛʜᴏᴜᴛ Aɴʏ Lɪɴᴋ\nUꜱᴇ /lyrics Cᴏᴍᴍᴀɴᴅ Tᴏ Gᴇᴛ Lʏʀɪᴄꜱ Oғ Aɴʏ Sᴏɴɢ !</blockquote>\n\nJᴜꜱᴛ Sᴇɴᴅ Mᴇ Aɴʏ Mᴇᴅɪᴀ Lɪɴᴋ Aɴᴅ Sᴇᴇ Mᴀɢɪᴄ 🤞🏻✨.</b>",
                     reply_markup=InlineKeyboardMarkup(reply_markup))
 
 @Mbot.on_message(filters.command("restart") & filters.chat(OWNER_ID) & filters.private)
@@ -67,11 +67,11 @@ async def ping(client,message):
 
 HELP = {
     "Youtube": "Send **Youtube** Link in Chat to Download Song.",
-    "Spotify": "Send **Spotify** Track/Playlist/Album/Show/Episode's Link. I'll Download It For You.",
+    "Spotify": "Send **Spotify** Track/Playlist/Album/Show/Episode's Link. I'll Download It For You.\n\n⚠ Playlist Not Support To Download, We Will Fix Soon",
     "Deezer": "Send Deezer Playlist/Album/Track Link. I'll Download It For You.",
     "Jiosaavn": "Not Implemented yet",
     "SoundCloud": "Not Implemented yet",
-    "Group": "Will add later."
+    "Group": "Add Bot In Your Group As admin."
 }
 
 
@@ -81,7 +81,7 @@ async def help(_,message):
         [InlineKeyboardButton(text=i, callback_data=f"help_{i}")] for i in HELP
     ]
     button.append([InlineKeyboardButton(text="back", callback_data=f"backdome")])
-    await message.reply_text(f"Hello **{message.from_user.first_name}**, I'm **@spotify_downloa_bot**.\nI'm Here to download your music.",
+    await message.reply_text(f"Hello **{message.from_user.first_name}**, I'm **@Public_Media_Downloader_Bot**.\nI'm Here to download your music.",
                         reply_markup=InlineKeyboardMarkup(button))
 
 @Mbot.on_callback_query(filters.regex(r"backdome"))
@@ -90,7 +90,7 @@ async def backdo(_,query):
         [InlineKeyboardButton(text=i, callback_data=f"help_{i}")] for i in HELP
     ]
     button.append([InlineKeyboardButton(text="back", callback_data=f"backdome")])
-    await query.message.edit(f"Hello **{query.message.from_user.first_name}**,\nI'm Here to download your music.",
+    await query.message.edit(f"Hello **{query.message.from_user.first_name}**, I'm **@Public_Media_Downloader_Bot**.\nI'm Here to download your music.",
                         reply_markup=InlineKeyboardMarkup(button))     
     
 @Mbot.on_callback_query(filters.regex(r"help_(.*?)"))
@@ -105,5 +105,5 @@ async def help_home(_,query):
     button = [
         [InlineKeyboardButton(text=i, callback_data=f"help_{i}")] for i in HELP
     ]
-    await query.message.edit(f"Hello **{query.from_user.first_name}**,\nI'm Here to download your music.",
+    await query.message.edit(f"Hello **{query.from_user.first_name}**,I'm **@Public_Media_Downloader_Bot**.\nI'm Here to download your music.",
                         reply_markup=InlineKeyboardMarkup(button))
