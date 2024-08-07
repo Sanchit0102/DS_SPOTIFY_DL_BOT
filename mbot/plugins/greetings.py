@@ -46,7 +46,7 @@ async def start(client,message):
     if message.chat.type != "private" and message.chat.id not in AUTH_CHATS and message.from_user.id not in SUDO_USERS:
         return await message.reply_text("This Bot Will Not Work In Groups Unless It's Authorized.",
                     reply_markup=InlineKeyboardMarkup(reply_markup))
-    return await message.reply_text(f"<b>Hᴇʟʟᴏ {message.from_user.first_name},  Jᴀɪ Sʜʀᴇᴇ Rᴀᴍ...🙏🏻\n\nɪ ᴀᴍ ᴛʜᴇ ᴍᴏꜱᴛ ᴘᴏᴡᴇʀꜰᴜʟ Mᴇᴅɪᴀ Dᴏᴡɴʟᴏᴀᴅᴇʀ ʙᴏᴛ!\n\nI Cᴀɴ Dᴏᴡɴʟᴏᴀᴅ Vɪᴅᴇᴏꜱ Fʀᴏᴍ Iɴꜱᴛᴀɢʀᴀᴍ, Fᴀᴄᴇʙᴏᴏᴋ & Tᴡɪᴛᴛᴇʀ Aɴᴅ Dᴏᴡɴʟᴏᴀᴅ Mᴜꜱɪᴄ Fʀᴏᴍ Sᴘᴏᴛɪғʏ, Yᴏᴜᴛᴜʙᴇ, Dᴇᴇᴢᴇʀ, Sᴏᴜɴᴅᴄʟᴏᴜᴅ, Eᴛᴄ 🔥\n\n<blockquote>Uꜱᴇ /song Cᴏᴍᴍᴀɴᴅ Tᴏ Dᴏᴡɴʟᴏᴀᴅ Aɴʏ Sᴏɴɢ Wɪᴛʜᴏᴜᴛ Lɪɴᴋ\nUꜱᴇ /lyrics Cᴏᴍᴍᴀɴᴅ Tᴏ Gᴇᴛ Lʏʀɪᴄꜱ Oғ Aɴʏ Sᴏɴɢ !</blockquote>\n\nJᴜꜱᴛ Sᴇɴᴅ Mᴇ Aɴʏ Mᴇᴅɪᴀ Lɪɴᴋ Aɴᴅ Sᴇᴇ Mᴀɢɪᴄ 🤞🏻✨.</b>",
+    return await message.reply_text(f"<b>Hᴇʟʟᴏ {message.from_user.first_name},  Jᴀɪ Sʜʀᴇᴇ Rᴀᴍ...🙏🏻\n\nɪ ᴀᴍ Mᴇᴅɪᴀ Dᴏᴡɴʟᴏᴀᴅᴇʀ ʙᴏᴛ!\n\nI Cᴀɴ Dᴏᴡɴʟᴏᴀᴅ Vɪᴅᴇᴏꜱ Fʀᴏᴍ Iɴꜱᴛᴀɢʀᴀᴍ Aɴᴅ Dᴏᴡɴʟᴏᴀᴅ Mᴜꜱɪᴄ Fʀᴏᴍ Sᴘᴏᴛɪғʏ, Dᴇᴇᴢᴇʀ, Sᴏᴜɴᴅᴄʟᴏᴜᴅ, Eᴛᴄ 🔥\n\n<blockquote>Uꜱᴇ /song Cᴏᴍᴍᴀɴᴅ Tᴏ Dᴏᴡɴʟᴏᴀᴅ Aɴʏ Sᴏɴɢ Wɪᴛʜᴏᴜᴛ Lɪɴᴋ\nUꜱᴇ /lyrics Cᴏᴍᴍᴀɴᴅ Tᴏ Gᴇᴛ Lʏʀɪᴄꜱ Oғ Aɴʏ Sᴏɴɢ !</blockquote>\n\nJᴜꜱᴛ Sᴇɴᴅ Mᴇ Mᴇᴅɪᴀ Lɪɴᴋ Aɴᴅ Sᴇᴇ Mᴀɢɪᴄ 🤞🏻✨.</b>",
                     reply_markup=InlineKeyboardMarkup(reply_markup))
 
 @Mbot.on_message(filters.command("restart") & filters.chat(OWNER_ID) & filters.private)
@@ -66,7 +66,7 @@ async def ping(client,message):
     await message.reply_text(f"**Pong!**\nResponse time: `{ms} ms`")
 
 HELP = {
-    "Youtube": "Send **Youtube** Link in Chat to Download Song.",
+    "Youtube": "Removed Due To Stupid People.",
     "Spotify": "Send **Spotify** Track/Playlist/Album/Show/Episode's Link. I'll Download It For You.\n\n⚠ Playlist Not Support To Download, We Will Fix Soon",
     "Deezer": "Send Deezer Playlist/Album/Track Link. I'll Download It For You.",
     "Jiosaavn": "Not Implemented yet",
