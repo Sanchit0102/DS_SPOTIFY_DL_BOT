@@ -15,8 +15,23 @@ headers = {
     "Connection": "keep-alive",
     "Referer": "https://saveig.app/en",
 }
+
+# Define a dictionary to store the last sent link timestamp for each user
+last_link_timestamps = {}
+
+
 @Mbot.on_message(filters.regex(r'https?://.*instagram[^\s]+') & filters.incoming)
 async def link_handler(Mbot, message):
+    user_id = message.from_user.id
+    
+    # Check if the user has sent a link within the last 5 minutes
+    if user_id in last_link_timestamps and time.time() - last_link_timestamps[user_id] < 120:
+        await message.reply("Sorry, you can only send a link every 2 minutes.")
+        return
+    
+    # Store the current timestamp as the last sent link timestamp for the user
+    last_link_timestamps[user_id] = time.time()
+    
     link = message.matches[0].group(0)
     try:
         m = await message.reply_sticker("CAACAgIAAxkBATWhF2Qz1Y-FKIKqlw88oYgN8N82FtC8AAJnAAPb234AAT3fFO9hR5GfHgQ")
