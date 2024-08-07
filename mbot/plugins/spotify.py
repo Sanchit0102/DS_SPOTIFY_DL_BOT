@@ -48,12 +48,23 @@ ID - <code>{}</code>
 Name - {}
 """
 pre = []
+last_link_sent = {}
+
 @Mbot.on_message(filters.incoming & filters.regex(r'https?://open.spotify.com[^\s]+') | filters.incoming & filters.regex(r'https?://spotify.link[^\s]+'))
 async def spotify_dl(Mbot,message: Message):
     if MAIN:
        await message.reply_text(f"Bot Is Under Maintenance ⚠️")
        return
+        
+    user_id = message.from_user.id
+
+    # Check if the user has sent a link within the last 5 minutes
+    if user_id in last_link_sent and time.time() - last_link_sent[user_id] < 120:
+        await message.reply_text("Sorry, you can only send 1 link in every 2 minutes.")
+        return
+
     link = message.matches[0].group(0)
+    
     if "https://www.deezer.com" in link:
        return
     if "https://youtu.be" in link:
@@ -496,7 +507,10 @@ async def spotify_dl(Mbot,message: Message):
         except:
             pass 
        # await message.reply_text(f"thumbnail and details is temp removed due to  there is  something going on telegram side:)")
-           
+    # Update the last link sent timestamp for the user
+    last_link_sent[user_id] = time.time()
+
+
 @Mbot.on_callback_query(filters.regex(r"feed"))
 async def feedback(Mbot,query):
       try:
