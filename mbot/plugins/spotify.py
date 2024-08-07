@@ -59,10 +59,13 @@ async def spotify_dl(Mbot,message: Message):
     user_id = message.from_user.id
 
     # Check if the user has sent a link within the last 5 minutes
-    if user_id in last_link_sent and time.time() - last_link_sent[user_id] < 120:
-        await message.reply_text("Sorry, you can only send 1 link in every 2 minutes.")
+    if user_id in last_link_sent and time.time() - last_link_sent[user_id] < 30:
+        await message.reply_text("Sorry, you can only send 1 link in every 30 Seconds.")
         return
 
+     # Update the last link sent timestamp for the user
+    last_link_sent[user_id] = time.time()
+    
     link = message.matches[0].group(0)
     
     if "https://www.deezer.com" in link:
@@ -507,8 +510,7 @@ async def spotify_dl(Mbot,message: Message):
         except:
             pass 
        # await message.reply_text(f"thumbnail and details is temp removed due to  there is  something going on telegram side:)")
-    # Update the last link sent timestamp for the user
-    last_link_sent[user_id] = time.time()
+   
 
 
 @Mbot.on_callback_query(filters.regex(r"feed"))
