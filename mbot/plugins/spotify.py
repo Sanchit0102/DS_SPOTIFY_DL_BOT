@@ -59,7 +59,7 @@ async def spotify_dl(Mbot,message: Message):
     user_id = message.from_user.id
 
     # Check if the user has sent a link within the last 5 minutes
-    if user_id in last_link_sent and time.time() - last_link_sent[user_id] < 1:
+    if user_id in last_link_sent and time.time() - last_link_sent[user_id] < 30:
         await message.reply_text("Sorry, Spotify Links Are Under Maintainance Mode ! \n\nUse Instagram links.")#("Sorry, you can send only 1 link in every 30 Seconds.")
         return
 
