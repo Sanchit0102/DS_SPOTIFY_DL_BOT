@@ -24,8 +24,8 @@ async def link_handler(Mbot, message):
     user_id = message.from_user.id
     
     # Check if the user has sent a link within the last 5 minutes
-    if user_id in last_link_timestamps and time.time() - last_link_timestamps[user_id] < 120:
-        await message.reply("Sorry, you can only send a link every 2 minutes.")
+    if user_id in last_link_timestamps and time.time() - last_link_timestamps[user_id] < 30:
+        await message.reply("Sorry, you can send only 1 link in every 30 seconds.")
         return
     
     # Store the current timestamp as the last sent link timestamp for the user
