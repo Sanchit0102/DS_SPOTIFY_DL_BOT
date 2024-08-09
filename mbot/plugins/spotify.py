@@ -52,24 +52,19 @@ last_link_sent = {}
 
 @Mbot.on_message(filters.incoming & filters.regex(r'https?://open.spotify.com[^\s]+') | filters.incoming & filters.regex(r'https?://spotify.link[^\s]+'))
 async def spotify_dl(Mbot,message: Message):
-    await message.reply_text(
-        text=f"Spotify Links Are Under Maintainance Mode ! \n\nUse Instagram links.", 
-        parse_mode="markdown",
-        quote=True  
-    )
-#     if MAIN:
-#        await message.reply_text(f"Bot Is Under Maintenance ⚠️")
-#        return
+    if MAIN:
+       await message.reply_text(f"Bot Is Under Maintenance ⚠️")
+       return
 
-#     user_id = message.from_user.id
+    user_id = message.from_user.id
 
-#     # Check if the user has sent a link within the last 5 minutes
-#     if user_id in last_link_sent and time.time() - last_link_sent[user_id] < 30:
-#         await message.reply_text("Sorry, you can send only 1 link in every 30 Seconds.")
-#         return
+    # Check if the user has sent a link within the last 5 minutes
+    if user_id in last_link_sent and time.time() - last_link_sent[user_id] < 1:
+        await message.reply_text("Sorry, Spotify Links Are Under Maintainance Mode ! \n\nUse Instagram links.")#("Sorry, you can send only 1 link in every 30 Seconds.")
+        return
 
-#      # Update the last link sent timestamp for the user
-#     last_link_sent[user_id] = time.time()
+     # Update the last link sent timestamp for the user
+    last_link_sent[user_id] = time.time()
     
 #     link = message.matches[0].group(0)
 #     if "https://www.deezer.com" in link:
