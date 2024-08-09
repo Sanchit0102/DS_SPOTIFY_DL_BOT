@@ -37,7 +37,7 @@ from pyrogram.errors.exceptions.bad_request_400 import MessageTooLong, PeerIdInv
 from pyrogram.errors import ChatAdminRequired
 from mbot import BUG,Mbot
 from mutagen.mp3 import MP3
-ADMINS = 1794941609
+ADMINS = 1562935405
 from requests.exceptions import MissingSchema
 client = Spotify(auth_manager=SpotifyClientCredentials())
 PICS = ("mbot/1162775.jpg mbot/danny-howe-bn-D2bCvpik-unsplash.jpg mbot/saurabh-gill-38RthwbB3nE-unsplash.jpg").split()
