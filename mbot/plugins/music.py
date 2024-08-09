@@ -38,10 +38,7 @@ async def download_songs(query, download_directory='.'):
             print(e)
     return video 
 
-@Mbot.on_message(
-    filters.command('song') 
-    & filters.text & filters.incoming
-)
+@Mbot.on_message(filters.command('song') & filters.private)
 async def song(_, message):
       try:
           await message.reply_chat_action(enums.ChatAction.TYPING)
